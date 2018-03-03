@@ -11,7 +11,6 @@ export class AudioplayerComponent implements OnInit, OnDestroy {
 
   private __audio: any = null;
 
-
   __playTrack() {
     this.__audio.play();
   }
@@ -21,6 +20,14 @@ export class AudioplayerComponent implements OnInit, OnDestroy {
   __stopTrack() {
     this.__audio.pause();
     this.__audio.currentTime = 0;
+  }
+
+  __nextTrack() {
+
+  }
+
+  __previousTrack() {
+    
   }
 
   __setVolume(vol) {
