@@ -11,6 +11,18 @@ export class AudioplayerComponent implements OnInit, OnDestroy {
 
   private __audio: any = null;
 
+
+  __playTrack() {
+    this.__audio.play();
+  }
+  __pauseTrack() {
+    this.__audio.pause();
+  }
+  __stopTrack() {
+    this.__audio.pause();
+    this.__audio.currentTime = 0;
+  }
+
   ngOnInit() {
     this.__audio = new Audio();
   }
