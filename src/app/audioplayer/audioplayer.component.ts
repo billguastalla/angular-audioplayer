@@ -27,6 +27,10 @@ export class AudioplayerComponent implements OnInit, OnDestroy {
     this.__audio.volume = vol;
   }
 
+  __setProgress(prog) {
+    this.__audio.currentTime = prog;
+  }
+
   ngOnInit() {
     this.__audio = new Audio();
   }
