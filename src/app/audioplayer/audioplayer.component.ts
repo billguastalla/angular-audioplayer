@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AudioPlayerTrack } from './audioplayer-track';
+import { trackList } from './audioplayer-tracks';
 
 @Component({
   selector: 'app-audioplayer',
@@ -10,6 +12,13 @@ export class AudioplayerComponent implements OnInit, OnDestroy {
   constructor() { }
 
   private __audio: any = null;
+  private __playing = false;
+  private __tracks: AudioPlayerTrack[] = trackList;
+  private __currentTrack: AudioPlayerTrack;
+  private __trackIndex = 0;
+  private __currentMinutes = 0;
+  private __currentSeconds = 0;
+  panelOpenState = false;
 
   __playTrack() {
     this.__audio.play();
