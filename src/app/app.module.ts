@@ -19,6 +19,7 @@ import { MatSliderModule,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     MatSliderModule,
     MatButtonModule,
     MatListModule,
