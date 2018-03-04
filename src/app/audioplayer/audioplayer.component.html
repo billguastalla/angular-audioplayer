@@ -1,4 +1,23 @@
 <p>Audioplayer</p>
+
+<div id="sliders">
+  Volume:
+  <mat-slider 
+    min="0"
+    max="1"
+    step="0.001"
+    value="{{__audio.volume}}"
+    (change)="__setVolume($event.value)">
+  </mat-slider>
+  Progress:
+  <mat-slider 
+    min="0"
+    max="{{__audio.duration}}"
+    step="0.001"
+    value="{{__audio.currentTime}}"
+    (change)="__setProgress($event.value)">
+  </mat-slider>
+</div>
 <span>
   <button mat-button id="play" (click)="__playTrack()">Play</button>
   <button mat-button id="pause" (click)="__pauseTrack()">Pause</button>
