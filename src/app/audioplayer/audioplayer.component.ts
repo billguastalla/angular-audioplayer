@@ -50,6 +50,14 @@ export class AudioplayerComponent implements OnInit, OnDestroy {
     this.__audio.load();
     this.__playTrack();
   }
+  __setTrack(track: AudioPlayerTrack) {
+    this.__stopTrack();
+    this.__trackIndex = track.id;
+    this.__currentTrack = this.__tracks[track.id];
+    this.__audio.src = this.__currentTrack.uri;
+    this.__audio.load();
+    this.__playTrack();
+  }
   __setVolume(vol) {
     this.__audio.volume = vol;
   }
