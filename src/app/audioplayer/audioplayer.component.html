@@ -1,3 +1,47 @@
-<p>
-  audioplayer works!
-</p>
+<p>Audioplayer</p>
+
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Playing: {{__currentTrack.name}}
+    </mat-panel-title>
+    <mat-panel-description>
+      Track: {{__currentTrack.id + 1}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div>
+    <mat-nav-list *ngFor="let track of __tracks">
+      <a mat-list-item
+        [class.selected]="track === __currentTrack"
+        (click)="__setTrack(track)">{{track.name}}</a>
+    </mat-nav-list>
+  </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<div id="sliders">
+  Volume:
+  <mat-slider 
+    min="0"
+    max="1"
+    step="0.001"
+    value="{{__audio.volume}}"
+    (change)="__setVolume($event.value)">
+  </mat-slider>
+  Progress:
+  <mat-slider 
+    min="0"
+    max="{{__audio.duration}}"
+    step="0.001"
+    value="{{__audio.currentTime}}"
+    (change)="__setProgress($event.value)">
+  </mat-slider>
+</div>
+<span>
+  <button mat-button id="play" (click)="__playTrack()">Play</button>
+  <button mat-button id="pause" (click)="__pauseTrack()">Pause</button>
+  <button mat-button id="stop" (click)="__stopTrack()">Stop</button>
+  <button mat-button id="next" (click)="__nextTrack()">Next</button>
+  <button mat-button id="previous" (click)="__previousTrack()">Previous</button>
+</span>
