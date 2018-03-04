@@ -1,5 +1,25 @@
 <p>Audioplayer</p>
 
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Playing: {{__currentTrack.name}}
+    </mat-panel-title>
+    <mat-panel-description>
+      Track: {{__currentTrack.id + 1}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div>
+    <mat-nav-list *ngFor="let track of __tracks">
+      <a mat-list-item
+        [class.selected]="track === __currentTrack"
+        (click)="__setTrack(track)">{{track.name}}</a>
+    </mat-nav-list>
+  </div>
+  </mat-expansion-panel>
+</mat-accordion>
 <div id="sliders">
   Volume:
   <mat-slider 
