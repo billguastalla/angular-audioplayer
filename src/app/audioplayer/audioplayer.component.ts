@@ -8,7 +8,10 @@ import { trackList } from './audioplayer-tracks';
   styleUrls: ['./audioplayer.component.css']
 })
 export class AudioplayerComponent implements OnInit, OnDestroy {
-  constructor() { }
+  constructor() {
+    this.__trackIndex = 0;
+    this.__currentTrack = this.__tracks[this.__trackIndex];
+  }
   private __audio: any = null;
   private __playing = false;
   private __tracks: AudioPlayerTrack[] = trackList;
